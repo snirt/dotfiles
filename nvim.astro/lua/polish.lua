@@ -60,7 +60,7 @@ vim.g.blamer_delay = 500
 vim.g.blamer_enabled = true
 
 -- default theme
-vim.cmd [[colorscheme tokyonight-storm]]
+vim.cmd [[colorscheme onedark]]
 
 require("neo-tree").setup {
   filesystem = {

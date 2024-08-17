@@ -12,7 +12,7 @@ return {
   { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.completion.copilot-cmp" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
-  { import = "astrocommunity.recipes.neovide" },
+  -- { import = "astrocommunity.recipes.neovide" },
   { import = "astrocommunity.recipes.vscode-icons" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.motion.mini-surround" },
@@ -20,6 +20,7 @@ return {
   { import = "astrocommunity.colorscheme.kanagawa-nvim" },
   { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.recipes.neovide" },
+  { import = "astrocommunity.color.twilight-nvim" },
   -- { import = "astrocommunity.split-and-window.edgy-nvim" },
 
   -- import/override with your plugins folder

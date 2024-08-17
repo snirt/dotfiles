@@ -19,6 +19,11 @@ return {
         enable = false,
         virtual_text = false,
       },
+      finder = {
+        keys = {
+          edit = "<CR>",
+        },
+      },
     }
   end,
   dependencies = {
