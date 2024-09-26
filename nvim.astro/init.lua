@@ -15,8 +15,6 @@ if not pcall(require, "lazy") then
   vim.cmd.quit()
 end
 
--- require("eagle").setup {}
-vim.o.mousemoveevent = true
 
 require "lazy_setup"
 require "polish"

@@ -1,0 +1,32 @@
+lastupdatecheck: 1723710484
+recentrepos:
+    - /Users/snir.turgeman/.dotfiles
+    - /Users/snir.turgeman/Projects/Volumez/saas-flat/user-service
+    - /Users/snir.turgeman/Projects/Volumez/csi/driver
+    - /Users/snir.turgeman/Projects/Volumez/public/helm-csi
+    - /Users/snir.turgeman/Code/volumez/automation
+    - /Users/snir.turgeman/Code/volumez
+    - /Users/snir.turgeman/Projects/Volumez/automation
+    - /Users/snir.turgeman/Projects/Volumez/saas-flat/common
+    - /Users/snir.turgeman/Projects/Volumez/saas-flat/krp-service
+    - /Users/snir.turgeman/Code/volumez/csi
+    - /Users/snir.turgeman/Projects/Volumez/core
+    - /Users/snir.turgeman/Projects/Volumez/saas-flat/auto-provision-service
+    - /Users/snir.turgeman/Projects/Volumez/saas-flat/saas
+    - /Users/snir.turgeman/Code/volumez/common
+    - /Users/snir.turgeman/Projects/Volumez/saas-flat/tenant-settings-service
+    - /Users/snir.turgeman/Projects/Volumez/saas-flat/infra-planner-service
+    - /Users/snir.turgeman/Projects/Volumez/saas-flat/tenant-cloud-resources-service
+startuppopupversion: 5
+lastversion: 0.44.1
+customcommandshistory:
+    - q
+    - Q
+hidecommandlog: false
+ignorewhitespaceindiffview: false
+diffcontextsize: 3
+renamesimilaritythreshold: 50
+localbranchsortorder: recency
+remotebranchsortorder: date
+gitlogorder: topo-order
+gitlogshowgraph: always

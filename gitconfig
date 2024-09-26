@@ -1,0 +1,38 @@
+[color]
+	ui = auto
+[url "git@bitbucket.org:"]
+	insteadOf = https://bitbucket.org/
+[user]
+	name = Snir Turgeman
+	email = snir.turgeman@volumez.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	autocrlf = input
+	excludesfile = /Users/snir.turgeman/.gitignore_global
+    pager = delta
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/snir.turgeman/.stCommitMsg
+[credential]
+    helper = osxkeychain
+
+[interactive]
+diffFilter = delta --color-only
+
+[delta]
+navigate = true
+light = false
+side-by-side = true
+line-numbers = true
+
+
+
