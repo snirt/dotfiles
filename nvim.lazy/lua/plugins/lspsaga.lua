@@ -1,8 +1,13 @@
 return {
   "nvimdev/lspsaga.nvim",
   event = "LspAttach",
+  keys = {
+    { "gp", "<cmd>Lspsaga peek_definition<CR>" },
+    { "K", "<cmd>Lspsaga hover_doc<CR>" },
+    { "gr", "<cmd>Lspsaga finder tyd+ref+imp+def<CR>" },
+  },
   config = function()
-    require("lspsaga").setup {
+    require("lspsaga").setup({
       -- You can add any Lspsaga configuration options here
       ui = {
         border = "rounded",
@@ -24,7 +29,7 @@ return {
           edit = "<CR>",
         },
       },
-    }
+    })
   end,
   dependencies = {
     { "nvim-treesitter/nvim-treesitter" },

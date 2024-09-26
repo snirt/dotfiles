@@ -21,6 +21,7 @@ return {
   { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.recipes.neovide" },
   { import = "astrocommunity.color.twilight-nvim" },
+  { import = "astrocommunity.colorscheme.nord-nvim" },
   -- { import = "astrocommunity.split-and-window.edgy-nvim" },
 
   -- import/override with your plugins folder
