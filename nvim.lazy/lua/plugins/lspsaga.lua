@@ -29,6 +29,19 @@ return {
           edit = "<CR>",
         },
       },
+      symbol_in_winbar = {
+        folder_level = 2,
+        enable = true,
+        color_mode = true,
+        separator = " > ",
+        hide_filetype = { "terminal", "packer" },
+        show_filetype_icon = true,
+        show_symbol_icon = true,
+        colors = {
+          active = "#FFD700",
+          inactive = "#808080",
+        },
+      },
     })
   end,
   dependencies = {

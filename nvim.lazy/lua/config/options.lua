@@ -5,7 +5,7 @@
 
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
-
+vim.opt.list = false
 -- Set up whichwrap to allow moving to the next line with the arrow keys
 vim.opt.whichwrap:append("<,>,[,],h,l")
 
@@ -33,24 +33,24 @@ table.insert(dap.configurations.go, {
 })
 
 -- list of make targets
-function RunMakeTarget()
-  coroutine.wrap(function()
-    local actions = {
-      ["default"] = function(selected)
-        vim.api.nvim_command("terminal make " .. selected[1])
-      end,
-    }
-
-    require("fzf-lua").fzf_exec(
-      "make -qp | awk -F':' '/^[a-zA-Z0-9][^$#\\/\\t=]*:([^=]|$)/ {split($1,A,/ /);for(i in A)print A[i]}' | sort -u",
-      {
-        prompt = "Make Targets> ",
-        cwd = vim.fn.getcwd(),
-        actions = actions,
-      }
-    )
-  end)()
-end
+-- function RunMakeTarget()
+--   coroutine.wrap(function()
+--     local actions = {
+--       ["default"] = function(selected)
+--         vim.api.nvim_command("terminal make " .. selected[1])
+--       end,
+--     }
+--
+--     require("fzf-lua").fzf_exec(
+--       "make -qp | awk -F':' '/^[a-zA-Z0-9][^$#\\/\\t=]*:([^=]|$)/ {split($1,A,/ /);for(i in A)print A[i]}' | sort -u",
+--       {
+--         prompt = "Make Targets> ",
+--         cwd = vim.fn.getcwd(),
+--         actions = actions,
+--       }
+--     )
+--   end)()
+-- end
 
 local function diff_buffer_with_saved()
   local current_buf = vim.api.nvim_get_current_buf()

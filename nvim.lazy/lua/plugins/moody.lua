@@ -14,7 +14,7 @@ return {
     blends = {
       normal = 0.2,
       insert = 0.2,
-      visual = 0.25,
+      visual = 0.3,
       command = 0.2,
       operator = 0.2,
       replace = 0.2,
@@ -27,9 +27,9 @@ return {
     -- set them up with highlight groups. Any highlight group set takes
     -- precedence over any colours defined here.
     colors = {
-      insert = "#00BFFF",
-      normal = "#70CF67",
-      visual = "#AD6FF7",
+      normal = "#00BFFF",
+      insert = "#70CF67",
+      visual = "#f9c7fc",
       command = "#EB788B",
       operator = "#FF8F40",
       replace = "#E66767",
