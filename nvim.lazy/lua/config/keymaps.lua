@@ -17,9 +17,6 @@ vim.api.nvim_set_keymap("n", "<leader>gn", "<cmd>Neogit<CR>", opts_arg)
 vim.keymap.set("n", "<M-j>", "5j", opts_arg)
 vim.keymap.set("n", "<M-k>", "5k", opts_arg)
 
--- close current buffer
-vim.keymap.set("n", "<C-S-x>", "<leader>bd<CR>", opts_arg)
-
 if vim.g.neovide then
   vim.keymap.set("n", "<D-s>", ":w<CR>") -- Save
   vim.keymap.set("v", "<D-c>", '"+y') -- Copy
@@ -68,7 +65,7 @@ vim.keymap.set("n", "<leader><leader>j", require("smart-splits").swap_buf_down)
 vim.keymap.set("n", "<leader><leader>k", require("smart-splits").swap_buf_up)
 vim.keymap.set("n", "<leader><leader>l", require("smart-splits").swap_buf_right)
 
-vim.keymap.set("n", "<leader>mt", RunMakeTarget, { desc = "Run Make Target" })
+-- vim.keymap.set("n", "<leader>mt", RunMakeTarget, { desc = "Run Make Target" })
 
 vim.keymap.set("n", "<M-x>", "<leader>bd", { desc = "Delete buffer" })
 
@@ -92,3 +89,38 @@ end, { noremap = true, silent = true, desc = "Search file symbols" })
 -- )
 
 vim.keymap.set("n", "<leader>gdh", "<cmd>DiffviewClose<CR>", { noremap = true, silent = true, desc = "Close diffview" })
+
+-- Kubernetes
+vim.keymap.set("n", "<leader>k", '<cmd>lua require("kubectl").toggle()<cr>', { noremap = true, silent = true })
+
+-- DEBUG CONFIG
+local dap = require("dap")
+
+-- Continue execution
+vim.keymap.set("n", "<F5>", function()
+  dap.continue()
+end, { silent = true, desc = "Continue" })
+
+-- Step over
+vim.keymap.set("n", "<F10>", function()
+  dap.step_over()
+end, { silent = true, desc = "Step Over" })
+
+-- Step into
+vim.keymap.set("n", "<F11>", function()
+  dap.step_into()
+end, { silent = true, desc = "Step Into" })
+
+-- Step out
+vim.keymap.set("n", "<F12>", function()
+  dap.step_out()
+end, { silent = true, desc = "Step Out" })
+
+-- Toggle breakpoint
+vim.keymap.set("n", "<F9>", function()
+  dap.toggle_breakpoint()
+end, { silent = true, desc = "Toggle Breakpoint" })
+
+vim.keymap.set("n", "<leader>db", function()
+  require("persistent-breakpoints.api").toggle_breakpoint()
+end, { desc = "Toggle Breakpoint" })
