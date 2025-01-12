@@ -96,6 +96,7 @@ vim.keymap.set("n", "<leader>k", '<cmd>lua require("kubectl").toggle()<cr>', { n
 -- DEBUG CONFIG
 local dap = require("dap")
 
+-- set vscode keymap for debugging
 -- Continue execution
 vim.keymap.set("n", "<F5>", function()
   dap.continue()
@@ -112,7 +113,7 @@ vim.keymap.set("n", "<F11>", function()
 end, { silent = true, desc = "Step Into" })
 
 -- Step out
-vim.keymap.set("n", "<F12>", function()
+vim.keymap.set("n", "<Shift-F11>", function()
   dap.step_out()
 end, { silent = true, desc = "Step Out" })
 

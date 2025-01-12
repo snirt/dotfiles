@@ -2,7 +2,6 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 -- vim.o.autochdir = true
-
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.list = false
@@ -12,26 +11,39 @@ vim.opt.whichwrap:append("<,>,[,],h,l")
 -- remove virtual text
 vim.diagnostic.config({ virtual_text = false })
 
--- dap remote debugger
-local dap = require("dap")
-dap.adapters.go_remote = {
-  type = "server",
-  host = "127.0.0.1",
-  port = 40000,
-}
+-- DAP remote setup
+-- local dap_ok, dap = pcall(require, "dap")
+-- if dap_ok then
+--   dap.adapters.go_remote = {
+--     type = "server",
+--     host = "127.0.0.1",
+--     port = 40000,
+--   }
+-- end
 
-dap.configurations.go = dap.configurations.go or {}
-table.insert(dap.configurations.go, {
-  type = "go_remote",
-  name = "Remote Delve Debugger",
-  request = "attach",
-  mode = "remote",
-  remotePath = "",
-  port = 40000,
-  host = "127.0.0.1",
-  cwd = "${workspaceFolder}",
-})
+local function load_env(file)
+  local env_vars = {}
+  local f = io.open(file, "r")
+  if not f then
+    return env_vars
+  end
+  vim.notify("Loading environment variables from " .. file, vim.log.levels.INFO)
+  for line in f:lines() do
+    local key, value = line:match("^%s*([%w_]+)%s*=%s*(.+)%s*$")
+    if key and value then
+      env_vars[key] = value
+    end
+  end
+  f:close()
+  return env_vars
+end
 
+-- load launch config dynamically
+local env_vars = load_env(vim.fn.getcwd() .. "/.env")
+
+for key, value in pairs(env_vars) do
+  vim.fn.setenv(key, value)
+end
 -- list of make targets
 -- function RunMakeTarget()
 --   coroutine.wrap(function()
@@ -97,3 +109,9 @@ vim.keymap.set(
   diff_buffer_with_saved,
   { noremap = true, silent = true, desc = "Diff buffer with saved file" }
 )
+
+-- Neo-tree configuration to follow the current buffer location
+vim.cmd([[
+  let g:neo_tree_remove_legacy_commands = 1
+  let g:neo_tree_follow = 1
+]])
